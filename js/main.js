@@ -192,3 +192,15 @@ addMarkersToMap = (restaurants = self.restaurants) => {
 
 }
 
+/**
+ * Add service worker for offline rendering
+ */
+if (navigator.serviceWorker) {
+  window.addEventListener('load', function() {
+    navigator.serviceWorker.register('/sw.js').then(function() {
+      console.log("Registration worked :)")
+    }).catch(function() {
+      console.log("Registration failed :(")
+    })
+  })
+}
